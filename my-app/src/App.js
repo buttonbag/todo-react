@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
+
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const listArray = [];
+	const [list, setList] = React.useState(listArray);
+
+	function addNew() {
+		setList((prevList) => {
+			return [...prevList, `item ${prevList.length + 1}`];
+		});
+	}
+	const listItems = list.map((items) => <li key={items}>{items}</li>);
+	console.log(list);
+
+	return (
+		<div className="main">
+			<h1>List Header</h1>
+			<ul>{listItems}</ul>
+			<button className="add-new" onClick={addNew}>
+				add new
+			</button>
+		</div>
+	);
 }
 
 export default App;
