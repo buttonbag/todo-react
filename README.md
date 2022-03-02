@@ -4,4 +4,4 @@
   - input textfields
   - add and delete buttons
   - clear all button
-  - ability to toggle by clicking items
+  - ability to toggle by clicking items directly
